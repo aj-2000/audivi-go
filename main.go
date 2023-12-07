@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/aj-2000/audivi-go/routes"
 	"github.com/gofiber/fiber/v2"
@@ -15,8 +16,7 @@ func setupRoutes(app *fiber.App) {
 }
 
 func getPort() string {
-	// port := os.Getenv("PORT")
-	port := ""
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "0.0.0.0:6969"
 	} else {
