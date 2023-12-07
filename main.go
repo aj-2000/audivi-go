@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/aj-2000/audivi-go/routes"
 	"github.com/gofiber/fiber/v2"
@@ -12,6 +13,17 @@ import (
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/", routes.Hw)
+}
+
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "0.0.0.0:6969"
+	} else {
+		port = "0.0.0.0:" + port
+	}
+
+	return port
 }
 
 func main() {
@@ -26,5 +38,5 @@ func main() {
 
 	setupRoutes(app)
 
-	log.Fatal(app.Listen(":6969"))
+	log.Fatal(getPort())
 }
