@@ -38,5 +38,5 @@ func main() {
 
 	setupRoutes(app)
 
-	log.Fatal(getPort())
+	log.Fatal(app.Listen(getPort()))
 }
