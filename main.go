@@ -6,6 +6,8 @@ import (
 	"os"
 
 	"github.com/aj-2000/audivi-go/routes"
+	"github.com/aj-2000/audivi-go/utils"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
@@ -31,6 +33,11 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	utils.Cut()
+	utils.GetTranscript("audio.mp3")
+	return
+
+
 	app := fiber.New()
 
 	//app.Use(csrf.New())
